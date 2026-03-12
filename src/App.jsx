@@ -49,8 +49,12 @@ function App() {
           />
         </main>
 
-        <footer className="mt-16 text-center text-sm text-gray-400 dark:text-gray-500">
-          <p>Sushin &copy; {new Date().getFullYear()}</p>
+        <footer className="mt-16 text-center text-sm text-gray-400 dark:text-gray-500 hover:text-gray-300 transition-colors duration-200">
+          <p>
+            <a href="https://github.com/Sushincm" target="_blank" rel="noopener noreferrer">
+              Sushincm
+            </a> &copy; {new Date().getFullYear()}
+          </p>
         </footer>
       </div>
     </div>
