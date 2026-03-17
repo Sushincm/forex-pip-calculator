@@ -14,6 +14,10 @@ function App() {
     return saved !== null ? Number(saved) : 1.0;
   });
   const [activePair, setActivePair] = useState('GBPUSD');
+  const [customPips, setCustomPips] = useState(() => {
+    const saved = localStorage.getItem('customPips');
+    return saved !== null ? JSON.parse(saved) : {};
+  });
 
   // Save to local storage when values change
   useEffect(() => {
@@ -24,12 +28,18 @@ function App() {
     localStorage.setItem('riskPercentage', riskPercentage);
   }, [riskPercentage]);
 
+  useEffect(() => {
+    localStorage.setItem('customPips', JSON.stringify(customPips));
+  }, [customPips]);
+
   return (
     <div className="min-h-screen transition-colors duration-200 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <Header />
+      <div className="max-w-[480px] mx-auto px-4 py-8">
+        <div className="animate-fade-in-up delay-100">
+          <Header />
+        </div>
         
-        <main className="space-y-8 animate-fade-in-up">
+        <main className="space-y-6 mt-6">
           <RiskSettings 
             accountBalance={accountBalance}
             setAccountBalance={setAccountBalance}
@@ -46,6 +56,8 @@ function App() {
             accountBalance={accountBalance}
             riskPercentage={riskPercentage}
             activePair={activePair}
+            customPips={customPips}
+            setCustomPips={setCustomPips}
           />
         </main>
 

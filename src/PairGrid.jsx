@@ -14,12 +14,12 @@ export default function PairGrid({ activePair, setActivePair }) {
   });
 
   return (
-    <div className="mb-8">
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-4">
+    <div className="mb-6 animate-fade-in-up delay-300 bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl border border-gray-100 dark:border-gray-700">
+      <div className="flex flex-col mb-4 gap-3">
         <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
-          Select Instrument
+          Select Pair
         </h2>
-        <div className="relative w-full sm:w-64">
+        <div className="relative w-full">
           <input 
             type="text"
             placeholder="Search pairs..."
@@ -31,19 +31,19 @@ export default function PairGrid({ activePair, setActivePair }) {
       </div>
       
       {filteredPairs.length === 0 ? (
-        <div className="text-center py-8 text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+        <div className="text-center py-6 text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 rounded-xl shadow-inner">
           No pairs found matching "{searchTerm}"
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-3 gap-2">
           {filteredPairs.map(pair => (
             <button
               key={pair}
               onClick={() => setActivePair(pair)}
-              className={`p-4 rounded-xl font-bold transition-all duration-200 border-2 ${
+              className={`p-3 rounded-2xl font-bold transition-all duration-200 border text-sm ${
                 activePair === pair 
-                  ? 'border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-900 dark:border-blue-400 dark:text-blue-100 shadow-md transform scale-[1.02]' 
-                  : 'border-transparent bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm'
+                  ? 'border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:border-blue-400 dark:text-blue-200 shadow-md transform scale-[1.02]' 
+                  : 'border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-500 shadow-sm'
               }`}
             >
               {pair === 'GOLDUSD' ? 'XAU/USD' : pair}

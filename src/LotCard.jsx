@@ -1,15 +1,16 @@
 import React from 'react';
 
-export default function LotCard({ label, lotSize, highlight }) {
+export default function LotCard({ label, lotSize, highlight, className = '' }) {
   const formattedLotSize = Number(lotSize).toFixed(2);
 
   return (
     <div 
-      className={`p-6 rounded-2xl flex flex-col items-center justify-center transition-transform hover:scale-105 shadow-sm
+      className={`p-6 rounded-3xl flex flex-col items-center justify-center transition-transform hover:scale-105 shadow-md
         ${highlight 
-          ? 'bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg' 
+          ? 'bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/30' 
           : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border border-gray-100 dark:border-gray-700'
         }
+        ${className}
       `}
     >
       <span className={`text-sm font-semibold tracking-wider mb-2 ${highlight ? 'text-blue-100' : 'text-gray-500 dark:text-gray-400'}`}>
