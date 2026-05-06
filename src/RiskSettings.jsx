@@ -4,7 +4,7 @@ export default function RiskSettings({ accountBalance, setAccountBalance, riskPe
   const riskAmount = (accountBalance * (riskPercentage / 100)).toFixed(2);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl border border-gray-100 dark:border-gray-700 animate-fade-in-up delay-200">
+    <div className="h-full bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl border border-gray-100 dark:border-gray-700 animate-fade-in-up delay-200">
       <h2 className="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
         Risk Parameters
       </h2>

@@ -34,31 +34,37 @@ function App() {
 
   return (
     <div className="min-h-screen transition-colors duration-200 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
-      <div className="max-w-[480px] mx-auto px-4 py-8">
-        <div className="animate-fade-in-up delay-100">
+      <div className="max-w-[480px] lg:max-w-6xl mx-auto px-4 py-8">
+        <div className="animate-fade-in-up delay-100 text-center lg:text-left">
           <Header />
         </div>
         
-        <main className="space-y-6 mt-6">
-          <RiskSettings 
-            accountBalance={accountBalance}
-            setAccountBalance={setAccountBalance}
-            riskPercentage={riskPercentage}
-            setRiskPercentage={setRiskPercentage}
-          />
+        <main className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-8">
+          <div className="lg:col-span-3 h-full">
+            <RiskSettings 
+              accountBalance={accountBalance}
+              setAccountBalance={setAccountBalance}
+              riskPercentage={riskPercentage}
+              setRiskPercentage={setRiskPercentage}
+            />
+          </div>
           
-          <PairGrid 
-            activePair={activePair}
-            setActivePair={setActivePair}
-          />
+          <div className="lg:col-span-4 h-full">
+            <PairGrid 
+              activePair={activePair}
+              setActivePair={setActivePair}
+            />
+          </div>
           
-          <ResultsPanel 
-            accountBalance={accountBalance}
-            riskPercentage={riskPercentage}
-            activePair={activePair}
-            customPips={customPips}
-            setCustomPips={setCustomPips}
-          />
+          <div className="lg:col-span-5 h-full">
+            <ResultsPanel 
+              accountBalance={accountBalance}
+              riskPercentage={riskPercentage}
+              activePair={activePair}
+              customPips={customPips}
+              setCustomPips={setCustomPips}
+            />
+          </div>
         </main>
 
         <footer className="mt-16 text-center text-sm text-gray-400 dark:text-gray-500 transition-colors duration-200">

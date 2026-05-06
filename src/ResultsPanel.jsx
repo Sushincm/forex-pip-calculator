@@ -36,7 +36,7 @@ export default function ResultsPanel({
   const customLotSize = currentCustomPip ? calculateLotSize(currentCustomPip) : 0;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl border border-gray-100 dark:border-gray-700 animate-fade-in-up delay-[400ms]">
+    <div className="h-full bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl border border-gray-100 dark:border-gray-700 animate-fade-in-up delay-[400ms]">
       <h2 className="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
         Results for{" "}
         <span className="text-blue-600 dark:text-blue-400 font-bold">
@@ -45,7 +45,7 @@ export default function ResultsPanel({
       </h2>
 
       {isGold ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
           <LotCard
             label="300 Points SL (30 Pips)"
             lotSize={calculateLotSize(30)}
@@ -53,19 +53,22 @@ export default function ResultsPanel({
           />
           {/* Custom Pips Card */}
           <div className="p-6 rounded-3xl flex flex-col items-center justify-center transition-transform hover:scale-105 shadow-md bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border border-gray-100 dark:border-gray-700">
-            <div className="flex flex-col items-center w-full mb-2">
+            <div className="flex flex-col items-center w-full mb-1">
               <label className="text-xs font-semibold tracking-wider text-gray-500 dark:text-gray-400 mb-1 uppercase">
                 Custom SL
               </label>
-              <input 
-                type="number"
-                value={currentCustomPip}
-                onChange={handleCustomPipsChange}
-                placeholder="e.g. 15"
-                step="0.1"
-                min="0"
-                className="w-24 text-center text-sm font-bold p-1 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none transition text-gray-900 dark:text-gray-100"
-              />
+              <div className="flex items-center gap-1">
+                <input 
+                  type="number"
+                  value={currentCustomPip}
+                  onChange={handleCustomPipsChange}
+                  placeholder="0"
+                  step="0.1"
+                  min="0"
+                  className="w-16 text-center text-sm font-bold p-1 rounded-md border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none transition text-gray-900 dark:text-gray-100"
+                />
+                <span className="text-xs text-gray-400">Pips</span>
+              </div>
             </div>
             <span className="text-4xl font-extrabold tracking-tight text-blue-600 dark:text-blue-400">
               {Number(customLotSize).toFixed(2)}
@@ -74,7 +77,7 @@ export default function ResultsPanel({
               Lots
             </span>
           </div>
-          <div className="text-gray-500 dark:text-gray-400 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl border border-yellow-200 dark:border-yellow-700/50 md:col-span-2">
+          <div className="text-gray-500 dark:text-gray-400 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl border border-yellow-200 dark:border-yellow-700/50 sm:col-span-2">
             <p className="font-medium text-yellow-800 dark:text-yellow-600">
               Note for Gold (XAU/USD):
             </p>
@@ -85,7 +88,7 @@ export default function ResultsPanel({
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 items-stretch">
           <LotCard
             label="5 Pips SL"
             lotSize={calculateLotSize(5)}
@@ -104,19 +107,22 @@ export default function ResultsPanel({
           
           {/* Custom Pips Card */}
           <div className="p-6 rounded-3xl flex flex-col items-center justify-center transition-transform hover:scale-105 shadow-md bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border border-gray-100 dark:border-gray-700">
-            <div className="flex flex-col items-center w-full mb-2">
+            <div className="flex flex-col items-center w-full mb-1">
               <label className="text-xs font-semibold tracking-wider text-gray-500 dark:text-gray-400 mb-1 uppercase">
                 Custom SL
               </label>
-              <input 
-                type="number"
-                value={currentCustomPip}
-                onChange={handleCustomPipsChange}
-                placeholder="e.g. 15"
-                step="0.1"
-                min="0"
-                className="w-24 text-center text-sm font-bold p-1 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none transition text-gray-900 dark:text-gray-100"
-              />
+              <div className="flex items-center gap-1">
+                <input 
+                  type="number"
+                  value={currentCustomPip}
+                  onChange={handleCustomPipsChange}
+                  placeholder="0"
+                  step="0.1"
+                  min="0"
+                  className="w-16 text-center text-sm font-bold p-1 rounded-md border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none transition text-gray-900 dark:text-gray-100"
+                />
+                <span className="text-xs text-gray-400">Pips</span>
+              </div>
             </div>
             <span className="text-4xl font-extrabold tracking-tight text-blue-600 dark:text-blue-400">
               {Number(customLotSize).toFixed(2)}

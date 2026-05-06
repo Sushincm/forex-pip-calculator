@@ -14,9 +14,9 @@ export default function PairGrid({ activePair, setActivePair }) {
   });
 
   return (
-    <div className="mb-6 animate-fade-in-up delay-300 bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl border border-gray-100 dark:border-gray-700">
-      <div className="flex flex-col mb-4 gap-3">
-        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+    <div className="h-full animate-fade-in-up delay-300 bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl border border-gray-100 dark:border-gray-700">
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
           Select Pair
         </h2>
         <div className="relative w-full">
